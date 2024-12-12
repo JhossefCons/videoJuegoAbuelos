@@ -61,7 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.21f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Control PJ.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\MaterialSwithcer.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\OpenURL.cs" />
     <Compile Include="Assets\FantasyEnvironments\Environments\Town\Scripts\Door.cs" />
