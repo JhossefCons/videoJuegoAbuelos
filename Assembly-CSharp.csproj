@@ -69,6 +69,7 @@
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\OpenURL.cs" />
     <Compile Include="Assets\FantasyEnvironments\Environments\Town\Scripts\Door.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\FlashText.cs" />
+    <Compile Include="Assets\Scripts\BarraVida.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

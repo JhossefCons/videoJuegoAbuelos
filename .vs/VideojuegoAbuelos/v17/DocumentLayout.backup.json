@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\UnityProyects\\VideojuegoAbuelos\\",
+  "WorkspaceRootPath": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\UnityProyects\\VideojuegoAbuelos\\Assets\\Scripts\\PlayerMove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerMove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|c:\\users\\nico_\\desktop\\mis cosas\\universidad\\desarrollo videojuegos\\videojuego\\videojuegoabuelos\\assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\UnityProyects\\VideojuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|c:\\users\\nico_\\desktop\\mis cosas\\universidad\\desarrollo videojuegos\\videojuego\\videojuegoabuelos\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
@@ -23,26 +27,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "barraVida.cs",
+              "DocumentMoniker": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\barraVida.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\barraVida.cs",
+              "ToolTip": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\barraVida.cs",
+              "RelativeToolTip": "Assets\\Scripts\\barraVida.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T01:04:42.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PlayerMove.cs",
-              "DocumentMoniker": "E:\\UnityProyects\\VideojuegoAbuelos\\Assets\\Scripts\\PlayerMove.cs",
+              "DocumentMoniker": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMove.cs",
-              "ToolTip": "E:\\UnityProyects\\VideojuegoAbuelos\\Assets\\Scripts\\PlayerMove.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerMove.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\PlayerMove.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerMove.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T03:44:52.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Lit.shader",
-              "DocumentMoniker": "E:\\UnityProyects\\VideojuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "DocumentMoniker": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
-              "ToolTip": "E:\\UnityProyects\\VideojuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "ToolTip": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
               "WhenOpened": "2024-11-07T03:06:05.686Z"
             }
           ]
