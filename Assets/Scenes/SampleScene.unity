@@ -5401,6 +5401,7 @@ GameObject:
   - component: {fileID: 781257657}
   - component: {fileID: 781257656}
   - component: {fileID: 781257659}
+  - component: {fileID: 781257660}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5495,13 +5496,18 @@ Canvas:
   m_TargetDisplay: 0
 --- !u!114 &781257659
 MonoBehaviour:
---- !u!1 &798474789 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3948933247560734027, guid: a86e890281dd47d4a81779d548b80116, type: 3}
-  m_PrefabInstance: {fileID: 1394428930}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &798474791
-BoxCollider:
+  m_GameObject: {fileID: 781257654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &781257660
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5515,21 +5521,6 @@ BoxCollider:
   gameObjectPanel: {fileID: 1672129460}
   jugador: {fileID: 404392864}
   barraVida: {fileID: 1160161837}
-  m_GameObject: {fileID: 798474789}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.14019321, y: 0.74436337, z: 0.102549806}
-  m_Center: {x: -0.00873814, y: 0.050606873, z: 0.0010180422}
 --- !u!1 &807177351 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 335715110992909045, guid: 26b8166c4f06708408d1d04ab4ee35d8, type: 3}
@@ -9080,9 +9071,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a86e890281dd47d4a81779d548b80116, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1232073929}
-    - targetCorrespondingSourceObject: {fileID: 3948933247560734027, guid: a86e890281dd47d4a81779d548b80116, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 798474791}
   m_SourcePrefab: {fileID: 100100000, guid: a86e890281dd47d4a81779d548b80116, type: 3}
 --- !u!1001 &1413388166
 PrefabInstance:
