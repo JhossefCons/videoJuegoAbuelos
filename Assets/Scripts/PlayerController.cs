@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Prueba : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Animator animacion;
     private float velocidad = 1.5f;
