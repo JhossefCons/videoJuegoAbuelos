@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\control pj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\ControlCamara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\ControlCamara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -39,14 +39,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Control PJ.cs",
               "ToolTip": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\Control PJ.cs",
               "RelativeToolTip": "Assets\\Scripts\\Control PJ.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAUwCEAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T16:56:22.594Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ControlCamara.cs",
               "DocumentMoniker": "E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\ControlCamara.cs",
               "ToolTip": "E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\ControlCamara.cs",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "BarraVida.cs",
               "DocumentMoniker": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\BarraVida.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BarraVida.cs",

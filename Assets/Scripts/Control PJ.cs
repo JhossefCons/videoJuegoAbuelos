@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Prueba : MonoBehaviour
@@ -14,8 +12,14 @@ public class Prueba : MonoBehaviour
     private float gravedad = 9.8f;
     private float fuerzaSalto = 6f;
     private bool enAire = false;
-    private bool agachado = false; // Nueva variable para agacharse
-    private float velocidadOriginal; // Guardar la velocidad original
+    private bool agachado = false;
+    private float velocidadOriginal;
+
+    [Header("Configuración de Suelo")]
+    public Transform puntoChequeoSuelo; // Punto de chequeo para detectar el suelo
+    public float radioChequeo = 0.3f; // Radio del chequeo
+    public LayerMask capaSuelo; // Determina qué capas son suelo
+    private bool enSuelo = false; // Si está tocando el suelo
 
     void Start()
     {
@@ -26,10 +30,28 @@ public class Prueba : MonoBehaviour
         velocidadOriginal = velocidad; // Inicializa la velocidad original
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Detectar si está en el suelo
+        verificarSuelo();
         moverPersonaje();
+    }
+
+    void verificarSuelo()
+    {
+        // Usamos OverlapSphere para detectar colisiones con el suelo
+        enSuelo = Physics.CheckSphere(puntoChequeoSuelo.position, radioChequeo, capaSuelo);
+
+        // Si está en el suelo, puede moverse normalmente
+        if (enSuelo)
+        {
+            enAire = false;
+            movimiento.y = 0; // Reiniciar movimiento vertical
+        }
+        else
+        {
+            movimiento.y -= gravedad * Time.deltaTime; // Aplicar gravedad si no está en el suelo
+        }
     }
 
     void moverPersonaje()
@@ -37,50 +59,52 @@ public class Prueba : MonoBehaviour
         inputHorizontal = Input.GetAxisRaw("Horizontal");
         movimiento.z = inputHorizontal * velocidad;
 
-        // en el suelo
-        if (controladorPersonaje.isGrounded)
+        if (enSuelo)
         {
-
-            Debug.Log("EN EL SUELO");
-
+            Debug.Log("En el suelo");
             enAire = false;
-            animacion.SetBool("Saltando", false);
-            animacion.SetBool("Caminando", false); // aplicar animacion Idle
+            animacion.SetBool("Saltando", false); // Detener animación de salto
 
-            // Controlar si el personaje estÃ¡ agachado
-            if (Input.GetKeyDown(KeyCode.C)) // Presionar 'C' para agacharse
+            if (inputHorizontal == 0 && !agachado)
+            {
+                animacion.SetBool("Caminando", false); // Animación Idle
+            }
+
+            if (Input.GetKeyDown(KeyCode.S)) // Presiona 'S' para agacharse
             {
                 agachado = true;
                 animacion.SetBool("Agachado", true);
-                velocidad = velocidadOriginal / 2; // Reducir la velocidad al agacharse
+                velocidad = velocidadOriginal / 2; // Reducir velocidad
             }
-            else if (Input.GetKeyUp(KeyCode.C)) // Soltar 'C' para levantarse
+            else if (Input.GetKeyUp(KeyCode.S)) // Suelta 'S' para levantarse
             {
                 agachado = false;
                 animacion.SetBool("Agachado", false);
-                velocidad = velocidadOriginal; // Restaurar la velocidad original
+                velocidad = velocidadOriginal; // Restaurar velocidad
+            }
+
+            if (Input.GetButtonDown("Jump") && !enAire && !agachado) // Saltar
+            {
+                enAire = true;
+                movimiento.y = fuerzaSalto;
+                animacion.SetBool("Saltando", true);
             }
         }
-        else
-        { // no suelo
-            movimiento.y -= gravedad * Time.deltaTime; // caida, quitar gravedad
-            
-        }
 
-        if (inputHorizontal != 0 && !agachado) // Solo rotar y caminar si no estÃ¡ agachado
+        if (inputHorizontal != 0 && !agachado) // Rotar y caminar si no está agachado
         {
             rotacionPersonaje = Quaternion.LookRotation(new Vector3(0, 0, inputHorizontal));
             this.transform.rotation = rotacionPersonaje;
             animacion.SetBool("Caminando", true);
         }
 
-        if (Input.GetButton("Jump") && !enAire && !agachado) // Salto permitido solo si no estÃ¡ agachado
-        {
-            enAire = true;
-            animacion.SetBool("Saltando", true);
-            movimiento.y = fuerzaSalto;
-        }
+        controladorPersonaje.Move(movimiento * Time.deltaTime); // Aplicar movimiento
+    }
 
-        controladorPersonaje.Move(movimiento * Time.deltaTime); // moverse
+    private void OnDrawGizmos()
+    {
+        // Visualización del radio de detección del suelo
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(puntoChequeoSuelo.position, radioChequeo);
     }
 }
