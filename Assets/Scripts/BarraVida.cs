@@ -5,11 +5,17 @@ public class BarraVida : MonoBehaviour
 {
    
     public Image barraVida; 
-    private float vidaMaxima = 100f;
+    private float vidaMaxima = 2f;
     private float vidaActual;
+    private Animator animacion;
+    private CharacterController controladorPersonaje;
 
     void Start()
-    {
+    {   
+        animacion = this.GetComponent<Animator>();
+        controladorPersonaje = this.GetComponent<CharacterController>();
+        Application.targetFrameRate = 60;
+
         vidaActual = vidaMaxima; 
     }
 
@@ -31,10 +37,18 @@ public class BarraVida : MonoBehaviour
 
     public void RecibirDanio(float cantidad)
     {
-        // Recibir daño al personaje
+        // Recibir daï¿½o al personaje
         vidaActual -= cantidad;
 
-        if (vidaActual < 0) vidaActual = 0; 
+        if (vidaActual < 0) vidaActual = 0;
+
+        // Verifica si la vida llega a 0
+        if (vidaActual == 0)
+        {
+            animacion.SetBool("Muerte", true);
+
+            Debug.Log("Muerte");
+        }
 
         // Actualiza la barra de vida
         barraVida.fillAmount = vidaActual / vidaMaxima;
