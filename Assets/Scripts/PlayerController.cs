@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,15 +13,29 @@ public class PlayerController : MonoBehaviour
     private Vector3 movimiento;
     private float gravedad = 9.8f;
     private float fuerzaSalto = 6f;
+    private bool atacando;
     private bool enAire = false;
     private bool agachado = false;
     private float velocidadOriginal;
 
-    [Header("Configuración de Suelo")]
-    public Transform puntoChequeoSuelo; // Punto de chequeo para detectar el suelo
-    public float radioChequeo = 0.3f; // Radio del chequeo
-    public LayerMask capaSuelo; // Determina qué capas son suelo
-    private bool enSuelo = false; // Si está tocando el suelo
+    [Header("ConfiguraciÃ³n de Suelo")]
+    public Transform puntoChequeoSuelo;
+    public float radioChequeo = 0.3f;
+    public LayerMask capaSuelo;
+    private bool enSuelo = false;
+
+    private bool muerte = false;
+
+    public BarraVida vida;
+    public Vector3 posicionInicial = new Vector3(0, -0.2f, -0.07f);
+
+    private void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("arma"))
+        {
+            vida.RecibirDanio(3);
+        }
+    }
 
     void Start()
     {
@@ -27,30 +43,87 @@ public class PlayerController : MonoBehaviour
         controladorPersonaje = this.GetComponent<CharacterController>();
         Application.targetFrameRate = 60;
 
-        velocidadOriginal = velocidad; // Inicializa la velocidad original
+        velocidadOriginal = velocidad;
+        //posicionInicial = transform.position; // Guardar posiciÃ³n inicial
+
+        vida = FindObjectOfType<BarraVida>();
+
+        if (vida == null)
+        {
+            //Debug.LogError("No se encontrÃ³ la barra de vida.");
+        }
     }
 
     void Update()
     {
-        // Detectar si está en el suelo
-        verificarSuelo();
-        moverPersonaje();
+
+        //Debug.LogError("Vida en Jugador: "+vida.ObtenerVida());
+
+        if (!muerte)
+        {
+            verificarSuelo();
+            moverPersonaje();
+        }
+
+        if (vida.ObtenerVida() <= 0 && !muerte)
+        {
+            
+
+            HasMuerto pantallaMuerte = FindObjectOfType<HasMuerto>();
+            if (pantallaMuerte != null)
+            {
+                pantallaMuerte.MostrarPantallaMuerte();
+            }
+
+            EjecutarMuerte();
+        }
+
+    }
+
+    public void ReiniciarPosicion()
+    {
+        
+        controladorPersonaje.enabled = false; // Deshabilitar el CharacterController
+        transform.position = posicionInicial; // Cambiar posiciÃ³n
+        controladorPersonaje.enabled = true;  // Rehabilitar el CharacterController
+
+        movimiento = Vector3.zero; // Reinicia el movimiento
+        animacion.SetBool("Muerte", false);
+        animacion.SetBool("Saltando", false);
+        animacion.SetBool("Caminando", false);
+        animacion.SetBool("Agachado", false);
+        animacion.SetBool("Golpear", false);
+
+
+        /* Debug.Log("Saltando: "+animacion.GetBool("Saltando"));
+        Debug.Log("Caminando: "+animacion.GetBool("Caminando"));
+        Debug.Log("Agachado: "+animacion.GetBool("Agachado")); */
+
+
+        muerte = false;
+
+
+    }
+
+    public void EjecutarMuerte()
+    {
+        Debug.Log("AnimaciÃ³n de muerte ejecutada.");
+        animacion.SetBool("Muerte", true);
+        Invoke("ReiniciarJuego", 2f);
     }
 
     void verificarSuelo()
     {
-        // Usamos OverlapSphere para detectar colisiones con el suelo
         enSuelo = Physics.CheckSphere(puntoChequeoSuelo.position, radioChequeo, capaSuelo);
 
-        // Si está en el suelo, puede moverse normalmente
         if (enSuelo)
         {
             enAire = false;
-            movimiento.y = 0; // Reiniciar movimiento vertical
+            movimiento.y = 0;
         }
         else
         {
-            movimiento.y -= gravedad * Time.deltaTime; // Aplicar gravedad si no está en el suelo
+            movimiento.y -= gravedad * Time.deltaTime;
         }
     }
 
@@ -61,29 +134,34 @@ public class PlayerController : MonoBehaviour
 
         if (enSuelo)
         {
-            Debug.Log("En el suelo");
             enAire = false;
-            animacion.SetBool("Saltando", false); // Detener animación de salto
+            animacion.SetBool("Saltando", false);
 
             if (inputHorizontal == 0 && !agachado)
             {
-                animacion.SetBool("Caminando", false); // Animación Idle
+                animacion.SetBool("Caminando", false);
             }
 
-            if (Input.GetKeyDown(KeyCode.S)) // Presiona 'S' para agacharse
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 agachado = true;
                 animacion.SetBool("Agachado", true);
-                velocidad = velocidadOriginal / 2; // Reducir velocidad
+                velocidad = velocidadOriginal / 2;
             }
-            else if (Input.GetKeyUp(KeyCode.S)) // Suelta 'S' para levantarse
+            else if (Input.GetKeyUp(KeyCode.S))
             {
                 agachado = false;
                 animacion.SetBool("Agachado", false);
-                velocidad = velocidadOriginal; // Restaurar velocidad
+                velocidad = velocidadOriginal;
             }
 
-            if (Input.GetButtonDown("Jump") && !enAire && !agachado) // Saltar
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                atacando = true;
+                animacion.SetBool("Golpear", true);
+            }
+
+            if (Input.GetButtonDown("Jump") && !enAire && !agachado)
             {
                 enAire = true;
                 movimiento.y = fuerzaSalto;
@@ -91,20 +169,30 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (inputHorizontal != 0 && !agachado) // Rotar y caminar si no está agachado
+        if (inputHorizontal != 0 && !agachado)
         {
             rotacionPersonaje = Quaternion.LookRotation(new Vector3(0, 0, inputHorizontal));
             this.transform.rotation = rotacionPersonaje;
             animacion.SetBool("Caminando", true);
         }
 
-        controladorPersonaje.Move(movimiento * Time.deltaTime); // Aplicar movimiento
+        controladorPersonaje.Move(movimiento * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
     {
-        // Visualización del radio de detección del suelo
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(puntoChequeoSuelo.position, radioChequeo);
+    }
+
+    private void ReiniciarJuego()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Recargar la escena actual
+    }
+
+    public void FinalGolpe()
+    {
+        animacion.SetBool("Golpear", false);
+        atacando = false;
     }
 }
