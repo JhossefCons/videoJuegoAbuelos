@@ -17,17 +17,17 @@ public class BarraVida : MonoBehaviour
     void Update()
     {
 
-        Debug.LogError("Vida en vidaActual: "+vidaActual);
+        //Debug.LogError("Vida en vidaActual: "+vidaActual);
 
         ReducirVidaConTiempo();
 
         // Verifica si la vida llega a 0
         if (vidaActual == 0)
         {
-            Debug.Log("BANDERA");
+            //Debug.Log("BANDERA");
             jugador.EjecutarMuerte();
             
-            Debug.Log("MUERTE");
+            //Debug.Log("MUERTE");
         }
     }
 

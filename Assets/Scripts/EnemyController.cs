@@ -2,90 +2,88 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int rutina; // Controla la rutina de comportamiento del enemigo
-    public float cronometro; // Cronómetro para cambiar de rutina
-    public Animator ani; // Controlador de animaciones
-    public GameObject target; // Referencia al jugador
-    public bool atacando; // Controla si el enemigo está atacando
-    public float velocidadMovimiento = 4f; // Velocidad del movimiento horizontal
-    private Vector3 direccionMovimiento; // Dirección de movimiento (adelante o atrás)
-    public float distanciaPerseguir = 5f; // Distancia para que el enemigo comience a perseguir al jugador
-    public float distanciaAtaque = 1.3f; // Distancia para que el enemigo comience a atacar al jugador
+    public int rutina;
+    public float cronometro;
+    public Animator ani;
+    public GameObject target;
+    public bool atacando;
+    public float velocidadMovimiento = 4f;
+    private Vector3 direccionMovimiento;
+    public float distanciaPerseguir = 5f;
+    public float distanciaAtaque = 1.3f;
+    public float vidaEnemigo = 10f; // instancia de la barra de vida del enemigo
+
+    private bool muerto = false; // Controla si el enemigo ya ha muerto
 
     private void OnTriggerEnter(Collider other)
     {
-        // Si el enemigo choca con un obstáculo, cambia de dirección
         if (other.CompareTag("obstaculo"))
         {
-            direccionMovimiento = -direccionMovimiento; // Invierte la dirección
-            transform.rotation = Quaternion.LookRotation(direccionMovimiento); // Mira en la nueva dirección
+            direccionMovimiento = -direccionMovimiento;
+            transform.rotation = Quaternion.LookRotation(direccionMovimiento);
             print("Cambio de dirección por colisión con " + other.name);
         }
 
-        if (other.CompareTag("arma"))
+        if (other.CompareTag("armaPlayer"))
         {
-            Debug.Log("danio");
+            Debug.Log("Golpe de jugador recibido");
+            vidaEnemigo= vidaEnemigo-10f;
         }
     }
 
-    // Start se llama una vez antes de la primera ejecución de Update
     void Start()
     {
         ani = GetComponent<Animator>();
-        target = GameObject.Find("PlayerX"); // Asigna el objetivo (jugador)
-        direccionMovimiento = Vector3.forward; // Dirección inicial hacia adelante
+        target = GameObject.Find("PlayerX");
+        direccionMovimiento = Vector3.forward;
     }
 
     public void comportamientoEnemigo()
     {
+        if (muerto) return; // No ejecutar lógica si está muerto
+
         float distanciaJugador = Vector3.Distance(transform.position, target.transform.position);
 
-        // Si la distancia entre el enemigo y el jugador es mayor a la distancia de persecución
         if (distanciaJugador > distanciaPerseguir)
         {
-            ani.SetBool("CorrerEnemigo", false); // No está corriendo hacia el jugador
+            ani.SetBool("CorrerEnemigo", false);
             cronometro += Time.deltaTime;
 
-            if (cronometro >= 3) // Cambiar rutina cada 3 segundos
+            if (cronometro >= 3)
             {
-                rutina = Random.Range(0, 2); // Rutinas 0: quedarse quieto, 1: caminar horizontalmente
+                rutina = Random.Range(0, 2);
                 cronometro = 0;
             }
 
             switch (rutina)
             {
-                case 0: // Quedarse quieto
+                case 0:
                     ani.SetBool("CaminarEnemigo", false);
                     break;
-
-                case 1: // Caminar horizontalmente (hacia adelante o atrás)
+                case 1:
                     ani.SetBool("CaminarEnemigo", true);
-                    direccionMovimiento = Random.Range(0, 2) == 0 ? Vector3.forward : Vector3.back; // Elige aleatoriamente entre adelante o atrás
+                    direccionMovimiento = Random.Range(0, 2) == 0 ? Vector3.forward : Vector3.back;
                     rutina++;
                     break;
-
-                case 2: // Continuar moviéndose horizontalmente
+                case 2:
                     transform.Translate(direccionMovimiento * velocidadMovimiento * Time.deltaTime, Space.World);
                     ani.SetBool("CaminarEnemigo", true);
-                    // Aquí hacemos que el enemigo mire hacia la dirección en la que se mueve
                     transform.rotation = Quaternion.LookRotation(direccionMovimiento);
                     break;
             }
         }
-        else // Si el jugador está cerca, comenzar la persecución o el ataque
+        else
         {
             if (distanciaJugador > distanciaAtaque && !atacando)
             {
                 ani.SetBool("CorrerEnemigo", true);
-                // Perseguir al jugador horizontalmente (solo en Z)
                 Vector3 direccionHaciaJugador = (target.transform.position - transform.position).normalized;
-                direccionMovimiento = new Vector3(0, 0, direccionHaciaJugador.z).normalized; // Mantener solo la dirección hacia adelante o atrás
+                direccionMovimiento = new Vector3(0, 0, direccionHaciaJugador.z).normalized;
                 transform.Translate(direccionMovimiento * velocidadMovimiento * Time.deltaTime, Space.World);
-                // Aquí hacemos que el enemigo mire hacia el jugador
                 transform.LookAt(new Vector3(transform.position.x, transform.position.y, target.transform.position.z));
                 ani.SetBool("GolpearEnemigo", false);
             }
-            else // Si está lo suficientemente cerca, atacar
+            else
             {
                 ani.SetBool("CaminarEnemigo", false);
                 ani.SetBool("CorrerEnemigo", false);
@@ -95,15 +93,37 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void ejecutarMuerte()
+    {
+        if (muerto) return; // Evitar múltiples ejecuciones de la muerte
+
+        Debug.Log("Enemigo ha muerto");
+        ani.SetBool("MorirEnemigo", true);
+        muerto = true;
+        Invoke("DestruirEnemigo", 3f); // Destruir al enemigo después de 3 segundos
+    }
+
+    private void DestruirEnemigo()
+    {
+        Destroy(gameObject);
+    }
+
     public void FinalAni()
     {
         ani.SetBool("GolpearEnemigo", false);
         atacando = false;
     }
 
-    // Update se llama una vez por frame
     void Update()
     {
-        comportamientoEnemigo();
+        if (!muerto)
+        {
+            comportamientoEnemigo();
+        }
+
+        if (vidaEnemigo <= 0)
+        {
+            ejecutarMuerte();
+        }
     }
 }

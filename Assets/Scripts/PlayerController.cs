@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movimiento;
     private float gravedad = 9.8f;
     private float fuerzaSalto = 6f;
+    private bool atacando;
     private bool enAire = false;
     private bool agachado = false;
     private float velocidadOriginal;
@@ -26,6 +29,14 @@ public class PlayerController : MonoBehaviour
     public BarraVida vida;
     public Vector3 posicionInicial = new Vector3(0, -0.2f, -0.07f);
 
+    private void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("arma"))
+        {
+            vida.RecibirDanio(3);
+        }
+    }
+
     void Start()
     {
         animacion = this.GetComponent<Animator>();
@@ -39,14 +50,14 @@ public class PlayerController : MonoBehaviour
 
         if (vida == null)
         {
-            Debug.LogError("No se encontró la barra de vida.");
+            //Debug.LogError("No se encontró la barra de vida.");
         }
     }
 
     void Update()
     {
 
-        Debug.LogError("Vida en Jugador: "+vida.ObtenerVida());
+        //Debug.LogError("Vida en Jugador: "+vida.ObtenerVida());
 
         if (!muerte)
         {
@@ -54,15 +65,17 @@ public class PlayerController : MonoBehaviour
             moverPersonaje();
         }
 
-        if (vida.ObtenerVida() == 0 && !muerte)
+        if (vida.ObtenerVida() <= 0 && !muerte)
         {
-            EjecutarMuerte();
+            
 
             HasMuerto pantallaMuerte = FindObjectOfType<HasMuerto>();
             if (pantallaMuerte != null)
             {
                 pantallaMuerte.MostrarPantallaMuerte();
             }
+
+            EjecutarMuerte();
         }
 
     }
@@ -79,12 +92,13 @@ public class PlayerController : MonoBehaviour
         animacion.SetBool("Saltando", false);
         animacion.SetBool("Caminando", false);
         animacion.SetBool("Agachado", false);
+        animacion.SetBool("Golpear", false);
 
 
         /* Debug.Log("Saltando: "+animacion.GetBool("Saltando"));
         Debug.Log("Caminando: "+animacion.GetBool("Caminando"));
         Debug.Log("Agachado: "+animacion.GetBool("Agachado")); */
-        
+
 
         muerte = false;
 
@@ -95,7 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Animación de muerte ejecutada.");
         animacion.SetBool("Muerte", true);
-        muerte = true;
+        Invoke("ReiniciarJuego", 2f);
     }
 
     void verificarSuelo()
@@ -141,6 +155,12 @@ public class PlayerController : MonoBehaviour
                 velocidad = velocidadOriginal;
             }
 
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                atacando = true;
+                animacion.SetBool("Golpear", true);
+            }
+
             if (Input.GetButtonDown("Jump") && !enAire && !agachado)
             {
                 enAire = true;
@@ -163,5 +183,16 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(puntoChequeoSuelo.position, radioChequeo);
+    }
+
+    private void ReiniciarJuego()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Recargar la escena actual
+    }
+
+    public void FinalGolpe()
+    {
+        animacion.SetBool("Golpear", false);
+        atacando = false;
     }
 }
