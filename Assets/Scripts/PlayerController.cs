@@ -1,10 +1,13 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    private AudioSource audioSourse;
+
     private Animator animacion;
     private float velocidad = 1.5f;
     private float inputHorizontal;
@@ -13,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 movimiento;
     private float gravedad = 9.8f;
     private float fuerzaSalto = 6f;
-    private bool atacando;
     private bool enAire = false;
     private bool agachado = false;
     private float velocidadOriginal;
@@ -23,6 +25,10 @@ public class PlayerController : MonoBehaviour
     public float radioChequeo = 0.3f;
     public LayerMask capaSuelo;
     private bool enSuelo = false;
+
+    //Sonidos
+    [SerializeField] private AudioClip audio1;
+    [SerializeField] private AudioClip audio2;
 
     private bool muerte = false;
 
@@ -41,23 +47,15 @@ public class PlayerController : MonoBehaviour
     {
         animacion = this.GetComponent<Animator>();
         controladorPersonaje = this.GetComponent<CharacterController>();
-        Application.targetFrameRate = 60;
+
 
         velocidadOriginal = velocidad;
-        //posicionInicial = transform.position; // Guardar posición inicial
-
-        vida = FindObjectOfType<BarraVida>();
-
-        if (vida == null)
-        {
-            //Debug.LogError("No se encontró la barra de vida.");
-        }
     }
 
     void Update()
     {
 
-        //Debug.LogError("Vida en Jugador: "+vida.ObtenerVida());
+        transform.position = new Vector3(0, transform.position.y, transform.position.z);
 
         if (!muerte)
         {
@@ -77,31 +75,6 @@ public class PlayerController : MonoBehaviour
 
             EjecutarMuerte();
         }
-
-    }
-
-    public void ReiniciarPosicion()
-    {
-        
-        controladorPersonaje.enabled = false; // Deshabilitar el CharacterController
-        transform.position = posicionInicial; // Cambiar posición
-        controladorPersonaje.enabled = true;  // Rehabilitar el CharacterController
-
-        movimiento = Vector3.zero; // Reinicia el movimiento
-        animacion.SetBool("Muerte", false);
-        animacion.SetBool("Saltando", false);
-        animacion.SetBool("Caminando", false);
-        animacion.SetBool("Agachado", false);
-        animacion.SetBool("Golpear", false);
-
-
-        /* Debug.Log("Saltando: "+animacion.GetBool("Saltando"));
-        Debug.Log("Caminando: "+animacion.GetBool("Caminando"));
-        Debug.Log("Agachado: "+animacion.GetBool("Agachado")); */
-
-
-        muerte = false;
-
 
     }
 
@@ -150,6 +123,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.S))
             {
+                movimiento.x = 0;
                 agachado = false;
                 animacion.SetBool("Agachado", false);
                 velocidad = velocidadOriginal;
@@ -157,8 +131,9 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                atacando = true;
                 animacion.SetBool("Golpear", true);
+                audioSourse.PlayOneShot(audio1);
+                movimiento.x = 0;
             }
 
             if (Input.GetButtonDown("Jump") && !enAire && !agachado)
@@ -166,6 +141,7 @@ public class PlayerController : MonoBehaviour
                 enAire = true;
                 movimiento.y = fuerzaSalto;
                 animacion.SetBool("Saltando", true);
+                movimiento.x = 0;
             }
         }
 
@@ -175,7 +151,6 @@ public class PlayerController : MonoBehaviour
             this.transform.rotation = rotacionPersonaje;
             animacion.SetBool("Caminando", true);
         }
-
         controladorPersonaje.Move(movimiento * Time.deltaTime);
     }
 
@@ -193,6 +168,5 @@ public class PlayerController : MonoBehaviour
     public void FinalGolpe()
     {
         animacion.SetBool("Golpear", false);
-        atacando = false;
     }
 }

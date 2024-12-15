@@ -85,8 +85,6 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                ani.SetBool("CaminarEnemigo", false);
-                ani.SetBool("CorrerEnemigo", false);
                 ani.SetBool("GolpearEnemigo", true);
                 atacando = true;
             }
