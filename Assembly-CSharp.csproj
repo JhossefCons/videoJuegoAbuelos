@@ -62,12 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FastMesh\Scripts\SceneViewText.cs" />
-    <Compile Include="Assets\Scripts\MedicSoundController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Consumir.cs" />
     <Compile Include="Assets\Scripts\EnemyController2D.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\SoundPlayerController.cs" />
     <Compile Include="Assets\Kabungus\HouseholdItems\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\HasMuerto.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\MaterialSwithcer.cs" />

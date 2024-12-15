@@ -4,7 +4,7 @@
   "Documents": [
     {
 <<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\assets\\scripts\\medicsoundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|c:\\users\\nico_\\desktop\\mis cosas\\universidad\\desarrollo videojuegos\\videojuego\\videojuegoabuelos\\assets\\scripts\\medicsoundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\medicsoundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -13,13 +13,17 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> ec25c3528975e3675dce87bfad6fab0b372ebefd
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|c:\\users\\nico_\\desktop\\mis cosas\\universidad\\desarrollo videojuegos\\videojuego\\videojuegoabuelos\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|e:\\unityproyects\\repositoriodescargado\\videojuegoabuelos\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\assets\\scripts\\hasmuerto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hasmuerto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,15 +34,7 @@
     {
       "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
 =======
-      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\barravida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|e:\\unityproyects\\repositoriodescargado\\videojuegoabuelos\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
 >>>>>>> ec25c3528975e3675dce87bfad6fab0b372ebefd
       "RelativeMoniker": "D:0:0:{B0EDE7BD-1078-8C4B-CD4B-B19452E6A90A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -50,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -61,7 +57,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\MedicSoundController.cs",
               "ToolTip": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\MedicSoundController.cs",
               "RelativeToolTip": "Assets\\Scripts\\MedicSoundController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T05:46:18.107Z",
               "EditorCaption": ""
@@ -101,11 +97,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyController.cs",
               "ToolTip": "E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\EnemyController.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyController.cs",
-<<<<<<< HEAD
               "ViewState": "AgIAAEQAAAAAAAAAAAAwwF0AAAAeAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAFMAAAAAAAAAAAAwwGUAAAAWAAAAAAAAAA==",
->>>>>>> ec25c3528975e3675dce87bfad6fab0b372ebefd
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T16:24:27.847Z"
             },
@@ -117,35 +109,26 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Consumir.cs",
               "ToolTip": "C:\\Users\\nico_\\Desktop\\Mis cosas\\Universidad\\desarrollo videojuegos\\Videojuego\\videoJuegoAbuelos\\Assets\\Scripts\\Consumir.cs",
               "RelativeToolTip": "Assets\\Scripts\\Consumir.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T23:11:21.025Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 3,
-=======
-              "DocumentIndex": 0,
->>>>>>> ec25c3528975e3675dce87bfad6fab0b372ebefd
               "Title": "PlayerController.cs",
               "DocumentMoniker": "E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-<<<<<<< HEAD
               "ViewState": "AgIAAAoAAAAAAAAAAADwvz4AAABFAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAFgAAAAAAAAAAAAgwG8AAAAIAAAAAAAAAA==",
->>>>>>> ec25c3528975e3675dce87bfad6fab0b372ebefd
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T04:49:52.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T04:49:52.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "BarraVida.cs",
               "DocumentMoniker": "E:\\UnityProyects\\RepositorioDescargado\\videoJuegoAbuelos\\Assets\\Scripts\\BarraVida.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BarraVida.cs",
@@ -154,11 +137,10 @@
 <<<<<<< HEAD
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwCkAAAArAAAAAAAAAA==",
 =======
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAlAAAAAAAAAA==",
 >>>>>>> ec25c3528975e3675dce87bfad6fab0b372ebefd
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T01:04:42.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T01:04:42.709Z"
             }
           ]
         }
