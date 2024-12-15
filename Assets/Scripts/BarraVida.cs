@@ -6,7 +6,7 @@ public class BarraVida : MonoBehaviour
     public Image barraVida;
     public PlayerController jugador; // Referencia al script del jugador
 
-    private float vidaMaxima = 30f;
+    private float vidaMaxima = 60f;
     private float vidaActual;
 
     void Start()
@@ -16,19 +16,7 @@ public class BarraVida : MonoBehaviour
 
     void Update()
     {
-
-        //Debug.LogError("Vida en vidaActual: "+vidaActual);
-
         ReducirVidaConTiempo();
-
-        // Verifica si la vida llega a 0
-        if (vidaActual == 0)
-        {
-            //Debug.Log("BANDERA");
-            jugador.EjecutarMuerte();
-            
-            //Debug.Log("MUERTE");
-        }
     }
 
     private void ReducirVidaConTiempo()
@@ -44,6 +32,14 @@ public class BarraVida : MonoBehaviour
         vidaActual -= cantidad;
         if (vidaActual < 0) vidaActual = 0;
 
+        barraVida.fillAmount = vidaActual / vidaMaxima;
+    }
+
+    public void Curarse(float cantidad)
+    {
+        vidaActual += cantidad;
+        if (vidaActual > vidaMaxima) { vidaActual = vidaMaxima; }
+        if (vidaActual < 0) vidaActual = 0;
         barraVida.fillAmount = vidaActual / vidaMaxima;
     }
 

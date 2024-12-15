@@ -62,12 +62,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FastMesh\Scripts\SceneViewText.cs" />
+    <Compile Include="Assets\Scripts\MedicSoundController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Consumir.cs" />
+    <Compile Include="Assets\Scripts\EnemyController2D.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\SoundPlayerController.cs" />
+    <Compile Include="Assets\Kabungus\HouseholdItems\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\HasMuerto.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\MaterialSwithcer.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\OpenURL.cs" />
     <Compile Include="Assets\FantasyEnvironments\Environments\Town\Scripts\Door.cs" />
+    <Compile Include="Assets\Kabungus\HouseholdItems\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Phoenix3D\P3D_Wallpaper_Carpet_and_CurtainFabric_Materials_Pack\Scripts\FlashText.cs" />
     <Compile Include="Assets\Scripts\BarraVida.cs" />
   </ItemGroup>
@@ -95,6 +101,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Viruses_FREE\Documentation (Viruses_LITE).txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>

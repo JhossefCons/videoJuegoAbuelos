@@ -7,6 +7,10 @@ TagManager:
   - arma
   - obstaculo
   - armaPlayer
+  - medicinaPotente
+  - medicinaNormal
+  - medicinaSuave
+  - player
   layers:
   - Default
   - TransparentFX

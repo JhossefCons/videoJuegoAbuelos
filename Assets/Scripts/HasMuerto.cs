@@ -20,23 +20,6 @@ public class HasMuerto : MonoBehaviour
         yield return new WaitForSeconds(4f); // Esperar 4 segundos
 
         gameObjectPanel.SetActive(false); // Ocultar pantalla de muerte
-        ReiniciarJuego();
     }
 
-    private void ReiniciarJuego()
-    {
-        // Restaurar posición inicial del jugador
-        if (jugador != null)
-        {
-            jugador.ReiniciarPosicion();
-        }
-
-        // Restablecer la vida del jugador
-        if (barraVida != null)
-        {
-            barraVida.RestablecerVida();
-        }
-
-        Debug.Log("El juego ha sido reiniciado.");
-    }
 }
